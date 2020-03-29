@@ -14,7 +14,12 @@ const schema = Joi.object().keys({
     date:Joi.date().required()
 });
 
+app.use(express.static("Resources"))
 app.use(bodyParser.json());
+
+app.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'index.html'));
+})
 
 //Read all the birthday stored
 app.get('/getBirthday',(req,res)=>{
@@ -25,6 +30,31 @@ app.get('/getBirthday',(req,res)=>{
             res.json(documents);
         }
     })
+});
+
+app.put('/:id', (req, res) => {
+
+    const birthdayID = req.params.id;
+
+    const _name = req.body.userName;
+    const _date = req.body.date;
+
+    database.getDB().collection(collection).findOneAndUpdate({
+        _id: database.getPrimaryKey(birthdayID)
+    }, {
+        $set: {
+            userName: _name.userName,
+            date : _date.date
+        }
+    }, {
+        returnOriginal: false
+    }, (err, result) => {
+        if (err)
+            console.log(err);
+        else {
+            res.json(result);
+        }
+    });
 });
 
 app.post('/',(req, res, next)=>{
@@ -54,9 +84,27 @@ app.post('/',(req, res, next)=>{
     })
 });
 
-// app.get('/',(req,res)=>{
-//     res.sendFile(path.join(__dirname,'index.html'));
-// })
+
+app.delete('/:id', (req, res) => {
+    const birthdayID = req.params.id;
+    database.getDB().collection(collection).findOneAndDelete({
+        _id: database.getPrimaryKey(birthdayID)
+    }, (err, result) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(result);
+    });
+});
+
+
+app.use((err, req, res, next) => {
+    res.status(err.status).json({
+        error: {
+            message: err.message
+        }
+    });
+})
 
 database.connect((err)=>{
     if(err){
