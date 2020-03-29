@@ -3,9 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+ <!-- Bootstrap core CSS -->
+ <link href="/css/bootstrap.min.css">
+ <!-- Material Design Bootstrap -->
+ <link href="/css/mdb.min.css">
+ <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+ <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Birthday App</title>
 </head>
 <body>
-    
+    <h1 style="text-align: center; font-weight: bolder; margin-top: 30px; text-decoration: underline;">ToDo List</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <form id="form">
+                    <div class="form-group border rounded p-2 bg-dark text-white">
+
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="nameUserInput" placeholder="Enter a name">
+                        <label class="pt-3" for="birthdate">Date of Birth</label>
+                        <input type="date" class="form-control" id="birthdayUserInput" placeholder="Enter date of birth">
+                        <br>
+                        <button title="Insert a new task" type="submit" class="btn btn-primary">Add</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <br>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <ul class="list-group" id="display">
+
+                </ul>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="alert" role="alert" id="message">
+
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+
+        <!--COMPLETED TASKS-->
+        <div class="row">
+            <br>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8"><i class="fas fa-h2">COMPLETED TASKS</i>
+                <ul class="list-group" id="completed">
+
+                </ul>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
 </body>
 </html>
