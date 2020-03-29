@@ -7,14 +7,14 @@ const collection = "birthDay"
 
 const app = express()
 
-var port = process.env.PORT || 5000
+var port = process.env.PORT || 5001
 
 const schema = Joi.object().keys({
     userName: Joi.string().required(),
     date:Joi.date().required()
 });
 
-app.use(express.static("Resources"))
+app.use(express.static('public'))
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
