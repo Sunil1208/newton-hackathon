@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Bootstrap CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,14 +12,42 @@
  <!-- Bootstrap core CSS -->
  <link href="/css/bootstrap.min.css">
  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
- <link rel="stylesheet" href="./Resources/style.css">
+ <!-- <link rel="stylesheet" href="style.css"> -->
  <!-- Material Design Bootstrap -->
  <link href="/css/mdb.min.css">
+ <link rel="stylesheet" href="style.css">
  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <title>Birthday App</title>
 </head>
-<body>
+<body class="text-white">
     <h1 style="text-align: center; font-weight: bolder; margin-top: 30px; text-decoration: underline;">Birthday Manager</h1>
+    <!-- <section>
+        <div id="card">
+            <div id="card-inside">
+              <div class="wrap">
+                <p>Hey son,</p>
+                <p>I lost the message inside the card 2 times.. and i realsied i am slow at this :'( </p>
+                <p>Listen kid, I want you to be the happiest today.. and i suck at making people happy..This is probably the only gift i can give you, my word..</p>
+                <p>I will be there with you in your heart and soul whenever you seek me.
+                  I love you.
+                </p>
+                <p>always.</p>
+                <p><a href="http://pandey47.0fees.us/index4.html">NEXT</a></p>
+                <p class="signed">ZEF</p>
+                
+              </div>
+            </div>
+        
+            <div id="card-front">
+              <div class="wrap">
+                <h1>Happy Birthday!</h1>
+              </div>
+              <button id="open">&gt;</button>
+              <button id="close">&lt;</button>
+            </div>
+          </div>
+    </section> -->
+    
     <div class="container">
         <div class="row">
             <div class="col-lg-2"></div>
@@ -41,6 +69,7 @@
             </div>
             <div class="col-lg-2"></div>
         </div>
+        
         <div class="row">
             <!-- <div>
                 <ul class="list-group" id="display">
@@ -48,11 +77,14 @@
                 </ul>
             </div> -->
             <br>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-12">
-                <ul class="list-group" id="display">
-
-                </ul>
+            <div class="container ">
+               <fieldset> 
+                   <legend>Records</legend>
+                <div class="row mx-auto" id="display">
+                    <!-- <div class="col-lg-4 col-md-2 col-12 mb-4">
+                        <img src="/Resources/IMG_20181108_154414.jpg" class="img-fluid" alt=""> -->
+                    </div>
+                </fieldset>
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -99,7 +131,7 @@
           </div>
 
         </div> -->
-
+        
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -227,19 +259,91 @@
 
             const buildTemplate = (birthday, ids) => {
                 return `
-                    <div class="container w-50 mx-auto" id="${ids.listItemID}">
-                <div class="w3-card-4 w3-dark-grey">
+                <div class="container w-25 ml-2 mb-5 col-lg-3 col-md-3 col-12 z-depth-5 p-2 mb-3 bg-white rounded" id="${ids.listItemID}">
+                <div class="w3-card-4 bg-dark text-white">
                         <div class="w3-container w3-center">
-                          <h3 id="${ids.birthdayID}">${birthday.userName}</h3>
+                            
+                            <button title="Delete" id="${ids.deleteID}" class="float-right btn btn-primary "  ><i class="fas fa-trash"></i></button>
+                            <!--<button title="Edit" id="${ids.editID}" class="float-right btn btn-primary mr-2" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-edit"></i></button> -->
+                            <button title="Edit" class="float-right btn btn-primary mr-2"  data-toggle="modal" data-target="#exampleModal"><i class="fas fa-user-edit"></i></button>
+
+                            <br><br>
+                            <h3 id="${ids.birthdayID}">${birthday.userName}</h3>
                           <img src="avatar.png" alt="Avatar" class="border rounded-circle"style="width:80%">
                           <h5 id="${ids.birthdayID}">${birthday.date}</h5>
-                        
+                        <!--
                           <button class="w3-button w3-green" id="${ids.editID}">Edit</button>
-                          <button class="w3-button w3-red" id="${ids.deleteID}">Delete</button>
+                          <button class="w3-button w3-red" id="${ids.deleteID}">Delete</button> -->
+
                         </div>
                     </div>
-                        </div><br>`;
+                        </div>
+                        <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"  >
+        <div class="modal-dialog modal-dialog-centered " role="document" id="${ids.listItemID}" >
+          <div class="modal-content bg-dark text-white border rounded p-2">
+            <div class="modal-header">
+              <h5 class="modal-title display-5" id="${ids.birthdayID}">Edit</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="birthday">Name</label>
+                      <input type="text" class="form-control" id="nameUserInput" aria-describedby="emailHelp" placeholder="Enter name" >
+                      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                    </div>
+                    <div class="form-group">
+                      <label for="birthdate">Date of Birth</label>
+                      <input type="date" class="form-control" id="birthdayUserInput" placeholder="Enter Date of Birth">
+                    </div>
+                    
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" id="${ids.editID}">Save Changes</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Modal end -->
+                        <br>`;
             }
+            
+        //     const buildTemplate = (birthday, ids) =>{
+        //         return `<div class="container" id="${ids.listItemID}">
+        //         <div id="card" >
+        //     <div id="card-inside">
+        //       <div class="wrap">
+        //         <p>Hey son,</p>
+        //         <p>I lost the message inside the card 2 times.. and i realsied i am slow at this :'( </p>
+        //         <p>Listen kid, I want you to be the happiest today.. and i suck at making people happy..This is probably the only gift i can give you, my word..</p>
+        //         <p>I will be there with you in your heart and soul whenever you seek me.
+        //           I love you.
+        //         </p>
+        //         <p>always.</p>
+        //         <p><a href="http://pandey47.0fees.us/index4.html">NEXT</a></p>
+        //         <p class="signed">ZEF</p>
+                
+        //       </div>
+        //     </div>
+        
+        //     <div id="card-front">
+        //       <div class="wrap">
+        //         <h1 id="${ids.birthdayID}">${birthday.userName}</h1>
+        //         <h2 id="${ids.birthdayID}>${birthday.date}</h2>
+        //       </div>
+        //       <button id="open">&gt;</button>
+        //       <button id="close">&lt;</button>
+        //     </div>
+        //   </div>
+        //   <div>
+        //   <br>`;
+        //     }
 
             const displayBirthdays = (data) =>{
                 data.forEach((userName) =>{

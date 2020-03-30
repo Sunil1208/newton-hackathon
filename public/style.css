@@ -1,0 +1,20 @@
+body{
+  background-image: url(./background1.jpg);
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* #display{
+  box-shadow:5px 5px 20px #888888;
+} */
+
+.w3-card-4{
+  box-shadow:15px 15px 10px skyblue;
+}
+
+.form-group{
+  box-shadow:15px 15px 10px rgb(5, 5, 5);
+}
+button:hover{
+  background-color:royalblue;
+}

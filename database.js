@@ -1,6 +1,6 @@
 const MongoClient = require('mongodb').MongoClient
 const ObjectID = require('mongodb').ObjectID
-const data_base_name = "birthday";
+const data_base_name = "birthday_one";
 
 const url = "mongodb+srv://Sunil_admin:Sunil001@cluster0-eylep.mongodb.net/test?retryWrites=true&w=majority"
 const mongoOptions = {useNewUrlParser : true,useUnifiedTopology: true};

@@ -14,7 +14,7 @@ const schema = Joi.object().keys({
     date:Joi.date().required()
 });
 
-app.use(express.static("Resources"))
+app.use(express.static('public'))
 app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
